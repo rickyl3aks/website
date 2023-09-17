@@ -1,0 +1,71 @@
+.modal {
+  margin: auto;
+  outline: none;
+  width: 480px;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: rgba(212, 196, 196, 0.24) 0px 3px 8px;
+}
+
+.modal[open] {
+  animation: show 0.5s ease normal;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  color: white;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:after {
+  content: "";
+  background-color: var(--main-colour);
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  border-radius: 0.5rem;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.btn:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 13px 50px 13px;
+  }
+}
+
+.btn {
+  outline: none;
+}

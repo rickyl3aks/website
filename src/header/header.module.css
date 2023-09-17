@@ -1,0 +1,55 @@
+.container {
+  margin-top: 40vh;
+  position: relative;
+}
+
+.rectangle {
+  margin: 4rem auto;
+  border-radius: 0.5rem;
+  border: 2px solid #2b8ab6;
+  box-shadow: 0 0 10px rgba(233, 37, 37, 0.6), 0 0 20px rgba(233, 37, 37, 0.4);
+  width: 80%;
+  height: 60vh;
+  background-color: #b62b2b;
+  background: linear-gradient(
+    185deg,
+    rgba(8, 4, 11, 1) 0%,
+    var(--main-colour) 48%,
+    var(--main-colour) 100%
+  );
+}
+
+.text {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 0.8rem;
+}
+
+.intro {
+  font-family: "Notable", sans-serif;
+  position: absolute;
+  top: -55px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
+  white-space: pre-line;
+  color: #fff;
+}
+
+.blinking_cursor::after {
+  content: "|";
+  animation: blink 1s step-start infinite;
+  color: #fff;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
