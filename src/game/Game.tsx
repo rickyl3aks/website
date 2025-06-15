@@ -37,10 +37,11 @@ const Game = () => {
   return (
     <>
       <h1>Can you make it rain?</h1>
-      <div style={{ zIndex: "15" }}>
+      <div style={{ zIndex: "15", marginTop: "1rem", marginBottom: "2rem" }}>
         <button
           className={`${style.btn} ${style.outerBtn}`}
           onClick={openDialog}
+          data-umami-event="clicked play game"
         >
           Let's try
         </button>

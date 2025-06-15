@@ -15,9 +15,7 @@ const ImageSlider = ({ slides }: any) => {
 
   const goToPrevious = (): void => {
     const isFirstSlide: boolean = currentIndex === 0;
-    const newIndex: number = isFirstSlide
-      ? slides.length - 1
-      : currentIndex - 1;
+    const newIndex: number = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
   const goToNext = (): void => {
@@ -49,11 +47,7 @@ const ImageSlider = ({ slides }: any) => {
           </div>
           <div>
             <div style={{ margin: ".5rem" }} />
-            <a
-              href={slides[currentIndex].link}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={slides[currentIndex].link} target="_blank" rel="noreferrer" data-umani-event={`${slides[currentIndex]} clicked`}>
               <span className={style.btn}>click here</span>
             </a>
           </div>
@@ -64,13 +58,7 @@ const ImageSlider = ({ slides }: any) => {
       </div>
       <div className={style.dotsContainerStyles}>
         {slides.map((slideIndex: number, idx: number): object => (
-          <div
-            className={
-              currentIndex === idx ? style.dotAnimation : style.dotStyle
-            }
-            key={idx + slideIndex}
-            onClick={() => goToSlide(idx)}
-          >
+          <div className={currentIndex === idx ? style.dotAnimation : style.dotStyle} key={idx + slideIndex} onClick={() => goToSlide(idx)}>
             ●
           </div>
         ))}

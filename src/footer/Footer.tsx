@@ -36,6 +36,7 @@ export const Footer = forwardRef((props, ref) => {
                 href="https://github.com/rickyl3aks"
                 rel="noreferrer"
                 target="_blank"
+                data-umami-event="github link clicked"
               >
                 <i className={style.tooltip}>
                   <AiOutlineGithub />

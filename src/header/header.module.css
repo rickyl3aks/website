@@ -4,12 +4,12 @@
 }
 
 .rectangle {
+  display: inherit;
   margin: 4rem auto;
   border-radius: 0.5rem;
   border: 2px solid #2b8ab6;
   box-shadow: 0 0 10px rgba(233, 37, 37, 0.6), 0 0 20px rgba(233, 37, 37, 0.4);
   width: 80%;
-  height: 60vh;
   background-color: #b62b2b;
   background: linear-gradient(
     185deg,
