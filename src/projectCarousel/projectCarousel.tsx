@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { projects } from "../section/projects";
 import styles from "./projectCarousel.module.css";
 
@@ -6,17 +6,38 @@ const ProjectCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollAmount = 320;
   const list = projects();
+  const [activeDot, setDot] = useState(0);
 
-  const scroll = (offset: number) => {
+  const scrollToIndex = (index: number) => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
+      scrollRef.current.scrollTo({ left: index * scrollAmount, behavior: "smooth" });
+      setDot(index);
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const scrollLeft = scrollRef.current.scrollLeft;
+        const newIndex = Math.round(scrollLeft / scrollAmount);
+        setDot(newIndex);
+      }
+    };
+
+    const ref = scrollRef.current;
+    if (ref) {
+      ref.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      if (ref) ref.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <section className={styles.container}>
       <div className={styles.controls}>
-        <button onClick={() => scroll(-scrollAmount)} className={styles.scrollBtnLeft}>
+        <button onClick={() => scrollToIndex(Math.max(activeDot - 1, 0))} className={styles.scrollBtnLeft}>
           ←
         </button>
 
@@ -41,9 +62,15 @@ const ProjectCarousel = () => {
           ))}
         </div>
 
-        <button onClick={() => scroll(scrollAmount)} className={styles.scrollBtnRight}>
+        <button onClick={() => scrollToIndex(Math.min(activeDot + 1, list.length - 1))} className={styles.scrollBtnRight}>
           →
         </button>
+      </div>
+
+      <div className={styles.indicators}>
+        {list.map((_, index) => (
+          <span key={index} className={`${styles.dot} ${index === activeDot ? styles.active : ""}`} onClick={() => scrollToIndex(index)} />
+        ))}
       </div>
     </section>
   );

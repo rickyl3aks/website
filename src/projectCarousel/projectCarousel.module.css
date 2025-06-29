@@ -36,7 +36,7 @@
 }
 
 .scrollBtnLeft {
-  left: .5rem;
+  left: 0.5rem;
 }
 
 .scrollBtnRight {
@@ -73,6 +73,12 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   scroll-snap-align: start;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+ filter: blur(4px);
 }
 
 .card:hover {
@@ -82,22 +88,28 @@
 
 .cardImage {
   width: 100%;
-  height: 350px;
-  opacity: 0.6;
-  filter: blur(4px);
+  height: 200px;
   object-fit: cover;
 }
 
 .cardContent {
   padding: 1rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .cardTitle {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .cardInfo {
+  color: #555;
+  margin-bottom: 0.8rem;
+  margin-top: auto;
+  line-height: 1.5;
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 0.8rem;
@@ -106,8 +118,9 @@
 .viewBtn {
   display: inline-block;
   padding: 0.4rem 0.9rem;
-  background: #222;
+  background: var(--main-colour);
   color: white;
+  width: 9rem;
   border-radius: 8px;
   font-size: 0.85rem;
   text-decoration: none;
@@ -115,23 +128,52 @@
 }
 
 .viewBtn:hover {
-  background: #000;
+  background: #d13b3b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.active {
+  background: #b62b2b;
+}
+
+.indicators {
+  visibility: hidden;
+}
+
+@media (max-width: 800px) {
   .container {
-    padding: 0rem
+    padding: 0rem;
   }
 
   .scrollContainer {
     margin: auto;
   }
+  
+  .indicators {
+    visibility: visible;
+  }
 
   .scrollBtnLeft {
-    left: 0.5rem;
+    display: none;
   }
 
   .scrollBtnRight {
-    right: 1rem;
+    display: none;
   }
 }

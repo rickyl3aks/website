@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import Game from "../game/Game";
 import style from "./timeline.module.css";
 
 export const Timeline = forwardRef((props, ref) => {
@@ -14,19 +13,20 @@ export const Timeline = forwardRef((props, ref) => {
         <div className={style.container}>
           <h2 className={style.title}>About me</h2>
           <p>
-            I'm a self-taught front-end developer experienced in JavaScript,
-            React and Next.js
+            I'm a self-taught front-end developer with experience in JavaScript, React, and Next.js. I focus on creating responsive, accessible, and
+            visually polished web interfaces
           </p>
           <h2 className={style.title}>What i do</h2>
           <p>
-            I enjoy creating user-friendly web apps, blending technology and
-            creativity for visually appealing websites.
+            I design and build user-friendly web applications, combining creativity with modern front-end technologies to craft smooth, interactive
+            experiences
           </p>
-          <Game />
+         
           <br />
           <br />
           <br />
           <br />
+          <div className={style.scroll}>↓</div>
         </div>
       </div>
     </>

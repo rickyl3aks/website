@@ -35,28 +35,23 @@ const Game = () => {
   };
 
   return (
-    <>
-      <h1>Can you make it rain?</h1>
+    <div className={style.container}>
+      <h1 className={style.title}>Play my mini game</h1>
       <div style={{ zIndex: "15", marginTop: "1rem", marginBottom: "2rem" }}>
-        <button
-          className={`${style.btn} ${style.outerBtn}`}
-          onClick={openDialog}
-          data-umami-event="clicked play game"
-        >
-          Let's try
+        <p>I built a small JavaScript game from scratch, help the cat jump and hit the clouds!</p>
+        <br />
+        <button className={`${style.btn} ${style.outerBtn}`} onClick={openDialog} data-umami-event="clicked play game">
+          Let's play
         </button>
       </div>
       <dialog className={style.modal} ref={dialogRef}>
         <Thunder isOpen={isDialogOpen} />
         <br />
-        <button
-          className={`${style.btn} ${style.innerBtn}`}
-          onClick={closeDialog}
-        >
+        <button className={`${style.btn} ${style.innerBtn}`} onClick={closeDialog}>
           Close
         </button>
       </dialog>
-    </>
+    </div>
   );
 };
 

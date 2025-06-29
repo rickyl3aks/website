@@ -4,6 +4,7 @@ import Navigation from "./navigation/Navigation";
 import Section from "./section/Section";
 import { Footer } from "./footer/Footer";
 import { Timeline } from "./timeline/Timeline";
+import Game from "./game/Game";
 
 export const App = () => {
   useEffect(() => {
@@ -23,6 +24,10 @@ export const App = () => {
       </div>
       <Timeline ref={resultRef} />
       <Section ref={resultRef} />
+      {Array.from({ length: 3 }).map((_, i) => (
+        <br key={i} />
+      ))}
+      <Game />
       <Footer ref={resultRef} />
     </div>
   );
